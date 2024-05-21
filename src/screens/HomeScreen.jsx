@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   wideItem: {
-    width: 370, // Adjust the width for the wider items here
+    width: 370, 
     alignSelf: "center",
     marginBottom: 15
   },

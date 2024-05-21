@@ -46,7 +46,7 @@ export default function LocationScreen({ navigation }) {
   const handleSaveLocation = () => {
     if (userLocation) {
       Alert.alert("Location saved!", `Lat: ${userLocation.coords.latitude}, Lon: ${userLocation.coords.longitude}`);
-      // Puedes navegar a otra pantalla o guardar la ubicación en un estado o base de datos
+      
     } else {
       Alert.alert("No location selected", "Please select a location on the map.");
     }

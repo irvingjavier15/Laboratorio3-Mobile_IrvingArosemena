@@ -13,7 +13,6 @@ const Edit = () => {
     const [password, setPassword] = useState('');
 
     const handleUpdateProfile = () => {
-        // Aquí iría la lógica para actualizar el perfil
         console.log("Perfil actualizado");
     };
 

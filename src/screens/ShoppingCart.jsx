@@ -17,6 +17,19 @@ const ShoppingCart = () => {
 
     const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
 
+    const shippingDetails = [
+        { id: 1, label: 'Método de Envío:', value: 'Envío Estándar' },
+        { id: 2, label: 'Dirección de Envío:', value: 'Calle Principal, Ciudad, País' },
+        { id: 3, label: 'Método de Pago:', value: 'PayPal' },
+    ];
+
+    const renderShippingItem = ({ item }) => (
+        <View style={styles.shippingItem}>
+            <Text style={styles.shippingLabel}>{item.label}</Text>
+            <Text style={styles.shippingValue}>{item.value}</Text>
+        </View>
+    );
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Carrito de Compras</Text>
@@ -24,11 +37,19 @@ const ShoppingCart = () => {
                 data={cartItems}
                 renderItem={renderItem}
                 keyExtractor={item => item.id.toString()}
+                contentContainerStyle={styles.cartList}
             />
             <View style={styles.totalContainer}>
                 <Text style={styles.totalText}>Total:</Text>
                 <Text style={styles.totalAmount}>${totalPrice}</Text>
             </View>
+            <Text style={styles.subtitle}>Detalles del Envío y Método de Pago</Text>
+            <FlatList
+                data={shippingDetails}
+                renderItem={renderShippingItem}
+                keyExtractor={item => item.id.toString()}
+                contentContainerStyle={styles.shippingDetailsContainer}
+            />
             <TouchableOpacity style={styles.checkoutButton}>
                 <Text style={styles.checkoutButtonText}>Realizar Pedido</Text>
             </TouchableOpacity>
@@ -40,11 +61,16 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 20,
+
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 20,
+        marginTop: 40,
+        marginBottom: 10,
+    },
+    cartList: {
+        flexGrow: 1,
     },
     item: {
         flexDirection: 'row',
@@ -86,6 +112,29 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 18,
         fontWeight: 'bold',
+    },
+    subtitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginTop: 20,
+        marginBottom: 10,
+        color: '#007192',
+    },
+    shippingDetailsContainer: {
+        flexGrow: 1,
+    },
+    shippingItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 10,
+    },
+    shippingLabel: {
+        fontSize: 16,
+    },
+    shippingValue: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#007192',
     },
 });
 

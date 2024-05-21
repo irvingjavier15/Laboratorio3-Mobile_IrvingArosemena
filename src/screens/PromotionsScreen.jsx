@@ -12,7 +12,7 @@ import {
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import Header from "../components/Header";
 
-export default function HomeScreen({ navigation }) {
+export default function Promotions({ navigation }) {
   const laundries = [
     {
       id: "1",
@@ -50,6 +50,9 @@ export default function HomeScreen({ navigation }) {
     <View style={[styles.item, isWide && styles.wideItem]}>
       <View style={styles.itemImageContainer}>
         <Image source={item.image} style={styles.image} />
+        <View style={styles.promoContainer}>
+          <Text style={styles.promoText}>30% Off</Text>
+        </View>
       </View>
       <View style={styles.info}>
         <View>
@@ -85,17 +88,7 @@ export default function HomeScreen({ navigation }) {
 
       <TextInput style={styles.searchInput} placeholder="Buscar lavanderías" />
 
-      <Text style={styles.title}>Porque ya ordenaste</Text>
-      <FlatList
-        data={laundries}
-        renderItem={({ item }) => repeatOrder({ item, isWide: false })}
-        keyExtractor={(item) => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.flatListContent}
-      />
-
-      <Text style={styles.title}>Otras Lavanderías</Text>
+      <Text style={styles.title}>Promociones</Text>
       <FlatList
         data={laundries}
         renderItem={({ item }) => repeatOrder({ item, isWide: true })}
@@ -165,9 +158,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   wideItem: {
-    width: 370, // Adjust the width for the wider items here
+    width: 370, 
     alignSelf: "center",
-    marginBottom: 15
+    marginBottom: 15,
   },
   itemImageContainer: {
     width: "100%",
@@ -180,6 +173,20 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     resizeMode: "cover",
+  },
+  promoContainer: {
+    position: "absolute",
+    bottom: 5,
+    left: 5,
+    backgroundColor: "yellow",
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    borderRadius: 5,
+  },
+  promoText: {
+    fontSize: 12,
+    fontWeight: "bold",
+    color: "black",
   },
   imageLogo: {
     width: 50,

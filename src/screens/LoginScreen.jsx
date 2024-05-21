@@ -1,8 +1,7 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button, ImageBackground, TextInput } from "react-native";
+import { StyleSheet, Text, View, Button, ImageBackground, TextInput, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
-import GradientText from "../components/GradientText.jsx";
 import HandlerTouchableUtil from "../components/HandlerTouchableUtil.jsx";
 
 export default function App() {
@@ -14,136 +13,129 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.imageContainer}>
-        <ImageBackground
-          source={require("../../assets/image.jpg")}
-          style={styles.imageBackground}
-        >
-          <LinearGradient
-            colors={["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 1)"]}
-            start={{ x: 0.5, y: 0 }}
-            end={{ x: 0.5, y: 1 }}
-            style={styles.gradient}
-          />
-        </ImageBackground>
-      </View>
-      <View style={styles.secondContainer}>
-        <GradientText text="Exactamente" style={styles.textGradient} />
+      <ImageBackground
+        source={require("../../assets/login-bg.jpg")}
+        style={styles.imageBackground}
+        imageStyle={{ opacity: 0.4 }}
+      >
+        <LinearGradient
+          colors={["rgba(0, 0, 0, 0.2)", "rgba(0, 0, 0, 1)"]}
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.5, y: 1 }}
+          style={styles.gradient}
+        />
+        <View style={styles.content}>
+          <Text style={styles.textGradient}>Inicio de Sesion</Text>
 
-        <View style={styles.emailInputContainer}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Email or Username"
-            placeholderTextColor={"#999"}
-          />
-        </View>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.inputText}
+              placeholder="Correo Electronico"
+              placeholderTextColor={"#999"}
+            />
+          </View>
 
-        <View style={styles.passwordInputContainer}>
-          <TextInput
-            style={styles.inputText}
-            secureTextEntry={true}
-            placeholder="Password"
-            placeholderTextColor={"#999"}
-          />
-
-          <Text style={styles.recover}>Recover Password?</Text>
-        </View>
-        
-        <HandlerTouchableUtil route={ValidateLogin()} handlerstyle={styles.loginButton}>
-            <Text style={styles.buttonText}>Login</Text>
-        </HandlerTouchableUtil>
-        
-        <Text style={styles.forgetPasswordText}>
-          Don't have an account yet?{" "}
-          <Text
-            style={styles.forgetPasswordLink}
-            onPress={() => navigation.navigate("Register")}
-          >
-            Sign Up
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.inputText}
+              secureTextEntry={true}
+              placeholder="Contrasena"
+              placeholderTextColor={"#999"}
+            />
+            <Text 
+            style={styles.recover}
+            onPress={() => navigation.navigate("Reset")}
+            >
+              Olvidaste tu contrasena?
+              </Text>
+          </View>
+          
+          <HandlerTouchableUtil route={ValidateLogin()} handlerstyle={styles.loginButton}>
+              <Text style={styles.buttonText}>Login</Text>
+          </HandlerTouchableUtil>
+          
+          <Text style={styles.forgetPasswordText}>
+            No tienes una cuenta aun?{" "}
+            <Text
+              style={styles.forgetPasswordLink}
+              onPress={() => navigation.navigate("Register")}
+            >
+              Registrate
+            </Text>
           </Text>
-        </Text>
-
-        <Text>Redireccionar a Home: </Text>
-        <View>
-          <Button title="Home" onPress={() => navigation.navigate("Home")} />
         </View>
-      </View>
+      </ImageBackground>
       <StatusBar style="auto" />
     </View>
   );
 }
 
+const { height } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  imageContainer: {
-    height: "45%",
-  },
   imageBackground: {
     flex: 1,
     width: "100%",
+    height: height,
   },
   gradient: {
     ...StyleSheet.absoluteFillObject,
   },
-  emailInputContainer: {
+  content: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", 
+  },
+  inputContainer: {
     width: "90%",
     alignSelf: "center",
-    paddingHorizontal: 20,
-    bottom: 5,
+    marginTop: 20,
   },
-
-  passwordInputContainer: {
-    width: "90%",
-    alignSelf: "center",
-    marginTop: "5%",
-    paddingHorizontal: 20,
-  },
-
   inputText: {
+    width: "100%",
     padding: 20,
     borderColor: "gray",
     borderWidth: 2,
     borderRadius: 20,
     color: "#fff",
-  },
-  secondContainer: {
-    height: "55%",
-    backgroundColor: "rgba(0, 0, 0, 1)",
-    display: "flex",
-    alignItems: "center",
+    marginBottom: 10
   },
   recover: {
-    marginTop: 10,
     fontSize: 15,
-    color: "#fff",
+    color: "#049fc5",
     fontWeight: "bold",
     textAlign: "right",
+    marginTop: 5
   },
   loginButton: {
     width: "80%",
-    backgroundColor: "#00FF99",
+    backgroundColor: "#007192",
     padding: 15,
     borderRadius: 20,
-    marginTop: 10,
+    marginTop: 40,
     opacity: 1,
   },
   buttonText: {
+    color: "#fff",
     textAlign: "center",
     fontWeight: "900",
     fontSize: 15,
   },
   forgetPasswordText: {
-    marginTop: 10,
+    marginTop: 18,
     color: "#fff",
+    fontSize: 15
   },
   forgetPasswordLink: {
-    color: "#00FF99",
+    color: "#049fc5",
     fontWeight: "900",
   },
   textGradient: {
-    backgroundColor: "transparent",
+    color: "#fff",
     fontSize: 25,
     fontWeight: '900',
     marginBottom: 18,

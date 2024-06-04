@@ -47,7 +47,10 @@ export default function HomeScreen({ navigation }) {
   ];
 
   const repeatOrder = ({ item, isWide }) => (
-    <View style={[styles.item, isWide && styles.wideItem]}>
+    <TouchableOpacity
+      style={[styles.item, isWide && styles.wideItem]}
+      onPress={() => navigation.navigate("LaundryProfile")}
+    >
       <View style={styles.itemImageContainer}>
         <Image source={item.image} style={styles.image} />
       </View>
@@ -76,12 +79,16 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.rating}>{`★${item.rating}`}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
-    <ScrollView style={styles.container}>
-      <Header/>
+    <ScrollView
+      style={styles.container}
+      ScrollView
+      showsVerticalScrollIndicator={false}
+    >
+      <Header />
 
       <TextInput style={styles.searchInput} placeholder="Buscar lavanderías" />
 
@@ -102,6 +109,7 @@ export default function HomeScreen({ navigation }) {
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContentVertical}
+        scrollEnabled={false}
       />
     </ScrollView>
   );
@@ -165,9 +173,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   wideItem: {
-    width: 370, 
+    width: 370,
     alignSelf: "center",
-    marginBottom: 15
+    marginBottom: 15,
   },
   itemImageContainer: {
     width: "100%",

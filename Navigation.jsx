@@ -12,6 +12,11 @@ import Profile from "./src/screens/ProfileScreen.jsx";
 import LocationScreen from "./src/screens/LocationScreen.jsx";
 import Edit from "./src/screens/EditProfile.jsx";
 import ShoppingCart from "./src/screens/ShoppingCart.jsx";
+import VerifyCodeScreen from "./src/screens/VerifyCodeScreen.jsx";
+import ChangePasswordScreen from "./src/screens/ChangePasswordScreen.jsx";
+import LaundryProfileScreen from "./src/screens/LaundryProfileScreen.jsx";
+import LaundryReviewScreen from "./src/screens/LaundryReviewScreen.jsx";
+import ProductDetailScreen from "./src/screens/ProductDetailScreen.jsx";
 
 
 const StackNavigator = createNativeStackNavigator();
@@ -27,6 +32,12 @@ function StackRouter(){
             <StackNavigator.Screen name="Location" component={LocationScreen}/>
             <StackNavigator.Screen name="Edit" component={Edit}/>
             <StackNavigator.Screen name="Shopping" component={ShoppingCart}/>
+            <StackNavigator.Screen name="VerifyCode" component={VerifyCodeScreen}/>
+            <StackNavigator.Screen name="ChangePassword" component={ChangePasswordScreen}/>
+            <StackNavigator.Screen name="LaundryProfile" component={LaundryProfileScreen}/>
+            <StackNavigator.Screen name="LaundryReview" component={LaundryReviewScreen}/>
+            <StackNavigator.Screen name="ProductDetail" component={ProductDetailScreen}/>
+            
         </StackNavigator.Navigator>    
     );
 }

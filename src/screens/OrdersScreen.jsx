@@ -115,7 +115,11 @@ export default function Orders({ navigation }) {
   );
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      ScrollView
+      showsVerticalScrollIndicator={false}
+    >
       <Header />
 
       <TextInput style={styles.searchInput} placeholder="Buscar lavanderías" />
@@ -127,6 +131,7 @@ export default function Orders({ navigation }) {
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContentVertical}
+        scrollEnabled={false}
       />
     </ScrollView>
   );
@@ -225,18 +230,18 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    padding: 6
+    padding: 6,
   },
 
   opinionContainer: {
     display: "flex",
     flexDirection: "row",
-    alignItems: 'center',
-    columnGap: 5
+    alignItems: "center",
+    columnGap: 5,
   },
   repeatContainer: {
     display: "flex",
     flexDirection: "row",
-    columnGap: 5
+    columnGap: 5,
   },
 });

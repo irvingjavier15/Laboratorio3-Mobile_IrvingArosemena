@@ -8,18 +8,21 @@ import {
   TextInput,
 } from "react-native";
 
-import { Entypo } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
+import { Entypo } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native"; 
 
 import HandlerTouchableUtil from "../components/HandlerTouchableUtil.jsx";
 
 export default function ForgotPasswordScreen() {
-  const navigation = useNavigation(); // Inicializa la navegación
+  const navigation = useNavigation(); 
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
+        <Pressable
+          onPress={() => navigation.goBack()}
+          style={styles.backButton}
+        >
           <Entypo name="chevron-left" size={24} color="black" />
         </Pressable>
       </View>
@@ -36,13 +39,16 @@ export default function ForgotPasswordScreen() {
         <View style={styles.textContainer}>
           <Text style={styles.loginLbl}>Olvidaste tu Contraseña?</Text>
           <Text style={styles.forgotDesLbl}>
-            No te preocupes! Sucede, por favor ingresa la dirección asociada a tu cuenta.
+            No te preocupes! Sucede, por favor ingresa la dirección asociada a
+            tu cuenta.
           </Text>
         </View>
 
         <View style={styles.formCon}>
           <View style={styles.textBoxCon}>
-            <View style={styles.at}><Entypo name="email" size={24} color="#007192" /></View>
+            <View style={styles.at}>
+              <Entypo name="email" size={24} color="#007192" />
+            </View>
             <View style={styles.textCon}>
               <TextInput
                 style={styles.textInput}
@@ -56,9 +62,12 @@ export default function ForgotPasswordScreen() {
         <View style={styles.loginCon}>
           <Pressable
             style={styles.LoginBtn}
-            onPress={() => navigation.navigate("Login")}
+            
           >
-            <HandlerTouchableUtil handlerstyle={styles.loginButton}>
+            <HandlerTouchableUtil
+              handlerstyle={styles.loginButton}
+              route="VerifyCode"
+            >
               <Text style={styles.buttonText}>Recuperar Contrasena</Text>
             </HandlerTouchableUtil>
           </Pressable>
@@ -72,16 +81,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   header: {
     paddingLeft: 6,
     paddingTop: 20,
-    marginBottom: 40
+    marginBottom: 40,
   },
   backButton: {
     padding: 10,
-    marginTop: 25
+    marginTop: 25,
   },
   content: {
     flex: 1,
@@ -103,12 +112,12 @@ const styles = StyleSheet.create({
     color: "#000",
     fontSize: 30,
     textAlign: "justify",
-    marginTop: 10
+    marginTop: 10,
   },
   forgotDesLbl: {
     color: "#000",
     textAlign: "justify",
-    marginTop: 5
+    marginTop: 5,
   },
   formCon: {
     flexDirection: "column",
@@ -144,6 +153,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 16,
     color: "#fff",
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

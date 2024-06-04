@@ -83,8 +83,10 @@ export default function Promotions({ navigation }) {
   );
 
   return (
-    <ScrollView style={styles.container}>
-      <Header/>
+    <ScrollView style={styles.container}
+    ScrollView showsVerticalScrollIndicator={false}
+    >
+      <Header />
 
       <TextInput style={styles.searchInput} placeholder="Buscar lavanderías" />
 
@@ -95,6 +97,7 @@ export default function Promotions({ navigation }) {
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.flatListContentVertical}
+        scrollEnabled={false}
       />
     </ScrollView>
   );
@@ -158,7 +161,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   wideItem: {
-    width: 370, 
+    width: 370,
     alignSelf: "center",
     marginBottom: 15,
   },

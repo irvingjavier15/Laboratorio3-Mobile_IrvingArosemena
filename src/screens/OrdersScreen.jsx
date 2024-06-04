@@ -101,15 +101,20 @@ export default function Orders({ navigation }) {
       <View style={styles.hr}></View>
 
       <View style={styles.actions}>
-        <View style={styles.opinionContainer}>
+        <TouchableOpacity
+          style={styles.opinionContainer}
+          onPress={() => navigation.navigate("LeaveReview")}
+        >
           <AntDesign name="staro" size={20} color="black" />
           <Text>Opinar</Text>
-        </View>
+        </TouchableOpacity>
 
-        <View style={styles.repeatContainer}>
+        <TouchableOpacity style={styles.repeatContainer}
+        onPress={() => navigation.navigate("Shopping")}
+        >
           <FontAwesome name="repeat" size={20} color="black" />
           <Text>Repetir</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

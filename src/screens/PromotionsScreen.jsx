@@ -47,7 +47,9 @@ export default function Promotions({ navigation }) {
   ];
 
   const repeatOrder = ({ item, isWide }) => (
-    <View style={[styles.item, isWide && styles.wideItem]}>
+    <TouchableOpacity style={[styles.item, isWide && styles.wideItem]}
+      onPress={()=>navigation.navigate("LaundryProfile")}   
+    >
       <View style={styles.itemImageContainer}>
         <Image source={item.image} style={styles.image} />
         <View style={styles.promoContainer}>
@@ -79,7 +81,7 @@ export default function Promotions({ navigation }) {
           <Text style={styles.rating}>{`★${item.rating}`}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (

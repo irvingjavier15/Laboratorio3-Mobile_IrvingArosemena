@@ -51,7 +51,7 @@ export default function VerifyCodeScreen() {
         </View>
 
         <View style={styles.textContainer}>
-          <Text style={styles.loginLbl}>Verificate tu Código Perro</Text>
+          <Text style={styles.loginLbl}>Verifica tu Código</Text>
           <Text style={styles.forgotDesLbl}>
             Por favor, ingresa el código que recibiste en tu correo electrónico.
           </Text>

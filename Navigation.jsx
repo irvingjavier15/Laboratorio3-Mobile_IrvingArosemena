@@ -17,6 +17,7 @@ import ChangePasswordScreen from "./src/screens/ChangePasswordScreen.jsx";
 import LaundryProfileScreen from "./src/screens/LaundryProfileScreen.jsx";
 import LaundryReviewScreen from "./src/screens/LaundryReviewScreen.jsx";
 import ProductDetailScreen from "./src/screens/ProductDetailScreen.jsx";
+import LeaveReviewScreen from "./src/screens/LeaveReviewScreen.jsx";
 
 
 const StackNavigator = createNativeStackNavigator();
@@ -37,6 +38,8 @@ function StackRouter(){
             <StackNavigator.Screen name="LaundryProfile" component={LaundryProfileScreen}/>
             <StackNavigator.Screen name="LaundryReview" component={LaundryReviewScreen}/>
             <StackNavigator.Screen name="ProductDetail" component={ProductDetailScreen}/>
+            <StackNavigator.Screen name="LeaveReview" component={LeaveReviewScreen}/>
+            
             
         </StackNavigator.Navigator>    
     );

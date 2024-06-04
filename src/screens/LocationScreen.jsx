@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
+import { AntDesign } from '@expo/vector-icons';
 
 export default function LocationScreen({ navigation }) {
   const [userLocation, setUserLocation] = useState(null);
@@ -54,6 +55,9 @@ export default function LocationScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+        <AntDesign name="arrowleft" size={24} color="black" />
+      </TouchableOpacity>
       <MapView
         style={styles.map}
         region={region}
@@ -79,6 +83,12 @@ export default function LocationScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+    zIndex: 1,
   },
   map: {
     flex: 1,

@@ -18,6 +18,7 @@ import LaundryProfileScreen from "./src/screens/LaundryProfileScreen.jsx";
 import LaundryReviewScreen from "./src/screens/LaundryReviewScreen.jsx";
 import ProductDetailScreen from "./src/screens/ProductDetailScreen.jsx";
 import LeaveReviewScreen from "./src/screens/LeaveReviewScreen.jsx";
+import { FontAwesome, Feather, Ionicons } from '@expo/vector-icons';
 
 
 const StackNavigator = createNativeStackNavigator();
@@ -48,10 +49,26 @@ function StackRouter(){
 function TabsRouter(){
     return(
         <TabsNavigator.Navigator initialRouteName="Inicio" screenOptions={{headerShown: false}}>
-            <TabsNavigator.Screen name="Inicio" component={HomeScreen}/>
-            <TabsNavigator.Screen name="Promociones" component={Promotions}/>
-            <TabsNavigator.Screen name="Orders" component={Orders}/>
-            <TabsNavigator.Screen name="Profile" component={Profile}/>
+            <TabsNavigator.Screen name="Inicio" component={HomeScreen} options={{
+                    tabBarIcon: ({ color, size }) => (
+                        <FontAwesome name="home" size={size} color={"#007192"} />
+                    ),
+                }}/>
+            <TabsNavigator.Screen name="Promociones" component={Promotions}  options={{
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="pricetag" size={size} color={"#007192"} />
+                    ),
+                }}/>
+            <TabsNavigator.Screen name="Orders" component={Orders} options={{
+                    tabBarIcon: ({ color, size }) => (
+                        <Feather name="shopping-bag" size={size} color={"#007192"} />
+                    ),
+                }}/>
+            <TabsNavigator.Screen name="Profile" component={Profile} options={{
+                    tabBarIcon: ({ color, size }) => (
+                        <FontAwesome name="user" size={size} color={"#007192"} />
+                    ),
+                }}/>
         </TabsNavigator.Navigator>
     );
 }

@@ -18,13 +18,6 @@ function Header() {
       <Text style={styles.userAddress}>Dirección del Usuario</Text>
       <View style={styles.icons}>
         <TouchableOpacity
-          onPress={() => {
-            /* Navegar a notificaciones */
-          }}
-        >
-          <Ionicons name="notifications-outline" size={24} color="black" />
-        </TouchableOpacity>
-        <TouchableOpacity
           onPress={() => navigation.navigate("Shopping")}
         >
           <FontAwesome name="shopping-cart" size={24} color="black" />

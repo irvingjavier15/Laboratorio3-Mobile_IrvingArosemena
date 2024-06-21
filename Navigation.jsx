@@ -19,6 +19,7 @@ import LaundryReviewScreen from "./src/screens/LaundryReviewScreen.jsx";
 import ProductDetailScreen from "./src/screens/ProductDetailScreen.jsx";
 import LeaveReviewScreen from "./src/screens/LeaveReviewScreen.jsx";
 import { FontAwesome, Feather, Ionicons } from '@expo/vector-icons';
+import OrderInProgress from "./src/screens/OrderInProgressScreen.jsx";
 
 
 const StackNavigator = createNativeStackNavigator();
@@ -40,6 +41,7 @@ function StackRouter(){
             <StackNavigator.Screen name="LaundryReview" component={LaundryReviewScreen}/>
             <StackNavigator.Screen name="ProductDetail" component={ProductDetailScreen}/>
             <StackNavigator.Screen name="LeaveReview" component={LeaveReviewScreen}/>
+            <StackNavigator.Screen name="Order" component={OrderInProgress}/>
             
             
         </StackNavigator.Navigator>    

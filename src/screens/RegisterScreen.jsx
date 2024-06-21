@@ -189,11 +189,11 @@ const Signup = ({ navigation }) => {
                 </View>
 
                 <View style={styles.footer}>
-                    <Text style={{ fontSize: 16, color: "#000" }}>Already have an account</Text>
+                    <Text style={{ fontSize: 16, color: "#000" }}>Ya tienes una cuenta?</Text>
                     <Pressable
                         onPress={() => navigation.navigate("Login")}
                     >
-                        <Text style={styles.footerLink}>Login</Text>
+                        <Text style={styles.footerLink}>Iniciar Sesion</Text>
                     </Pressable>
                 </View>
             </ScrollView>

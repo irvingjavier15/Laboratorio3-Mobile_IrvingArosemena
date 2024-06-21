@@ -1,7 +1,10 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
+
 const ShoppingCart = () => {
+    const navigation = useNavigation();
     const cartItems = [
         { id: 1, name: 'Producto 1', price: 10 },
         { id: 2, name: 'Producto 2', price: 20 },
@@ -50,8 +53,11 @@ const ShoppingCart = () => {
                 keyExtractor={item => item.id.toString()}
                 contentContainerStyle={styles.shippingDetailsContainer}
             />
-            <TouchableOpacity style={styles.checkoutButton}>
-                <Text style={styles.checkoutButtonText}>Realizar Pedido</Text>
+            <TouchableOpacity style={styles.checkoutButton}
+            onPress={()=>navigation.navigate("Order")}
+            >
+                <Text style={styles.checkoutButtonText}>
+                    Realizar Pedido</Text>
             </TouchableOpacity>
         </View>
     );
